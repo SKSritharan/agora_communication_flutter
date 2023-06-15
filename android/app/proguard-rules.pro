@@ -1,0 +1,3 @@
+-keep class io.agora.**{*;}
+-keep class com.hyphenate.** {*;}
+-dontwarn  com.hyphenate.**
