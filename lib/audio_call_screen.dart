@@ -1,12 +1,8 @@
 import 'dart:async';
+import 'package:agora_communication/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
-
-const String appId = "8fe97bd038e946d6a8b4abc8e3f59024";
-const String channelName = "testSri";
-const String token =
-    "007eJxTYLBub32m6fXsaX70sp/NnEkVkzymLZVUn/huBYcHd7JN80oFBou0VEvzpBQDY4tUSxOzFLNEiySTxKRki1TjNFNLAyMTu9KulIZARoYEhfNMjAwQCOKzM5SkFpcEF2UyMAAAf/sfsQ==";
 
 class AudioCallScreen extends StatefulWidget {
   const AudioCallScreen({super.key});
@@ -123,7 +119,7 @@ class _AudioCallScreenState extends State<AudioCallScreen> {
 
     //create an instance of the Agora engine
     agoraEngine = createAgoraRtcEngine();
-    await agoraEngine.initialize(const RtcEngineContext(appId: appId));
+    await agoraEngine.initialize(const RtcEngineContext(appId: Constant.appId));
 
     // Register the event handler
     agoraEngine.registerEventHandler(
@@ -167,8 +163,8 @@ class _AudioCallScreenState extends State<AudioCallScreen> {
     );
 
     await agoraEngine.joinChannel(
-      token: token,
-      channelId: channelName,
+      token: Constant.token,
+      channelId: Constant.channelName,
       options: options,
       uid: uid,
     );

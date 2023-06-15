@@ -1,18 +1,8 @@
+import 'package:agora_communication/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:agora_chat_sdk/agora_chat_sdk.dart';
 
 import './widgets/chat_bubble.dart';
-
-class AgoraChatConfig {
-  static const String appKey = "61865287#1061907";
-  static const String user2Id = "sj001";
-  static const String agoraToken2 =
-      "007eJxTYAgr+/vz7sMZ3UWHTRO3tjOs5w5qNuP42fqjYLKK3hyHJkMFBou0VEvzpBQDY4tUSxOzFLNEiySTxKRki1TjNFNLAyOTntKulIZARgZzgb8MjAysQMzIAOKrMJgkWpiYmKYZ6KaZmhjrGhqmpuhaJBua6ZqkGaWZJqYZG6VZpAIArUMnkw==";
-
-  static const String user1Id = "sri001";
-  static const String agoraToken1 =
-      "007eJxTYKi4M0/pgHPyZsbJKtUSOSdrpu0/6BubqSZ6/qmDnoHPMzYFBou0VEvzpBQDY4tUSxOzFLNEiySTxKRki1TjNFNLAyOThaVdKQ2BjAwfXM1ZGBlYGRiBEMRXYTBLMTRIskw00E0zNTHWNTRMTdFNskhN1k00NExMTgJqtjBIAwDxwSZg";
-}
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -22,7 +12,7 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-  final String _chatId = AgoraChatConfig.user2Id;
+  final String _chatId = Constant.user2Id;
   final List<ChatMessage1> _messages = [];
 
   final TextEditingController _textEditingController = TextEditingController();
@@ -83,7 +73,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
   void _initSDK() async {
     ChatOptions options = ChatOptions(
-      appKey: AgoraChatConfig.appKey,
+      appKey: Constant.appKey,
       autoLogin: false,
     );
     await ChatClient.getInstance.init(options);
@@ -117,10 +107,10 @@ class _ChatScreenState extends State<ChatScreen> {
   void signIn() async {
     try {
       await ChatClient.getInstance.loginWithAgoraToken(
-        AgoraChatConfig.user1Id,
-        AgoraChatConfig.agoraToken1,
+        Constant.user1Id,
+        Constant.agoraToken1,
       );
-      print("login succeed, userId: ${AgoraChatConfig.user1Id}");
+      print("login succeed, userId: ${Constant.user1Id}");
     } on ChatError catch (e) {
       print("login failed, code: ${e.code}, desc: ${e.description}");
     }
