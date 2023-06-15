@@ -1,0 +1,14 @@
+class Constant {
+// Call
+  static const String appId = "";
+  static const String channelName = "";
+  static const String token = "";
+
+// Chat
+  static const String appKey = "";
+  static const String user2Id = "";
+  static const String agoraToken2 = "";
+
+  static const String user1Id = "";
+  static const String agoraToken1 = "";
+}
